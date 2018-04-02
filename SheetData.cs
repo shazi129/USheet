@@ -287,5 +287,17 @@ namespace USheet
             int firstIndex = columnData.indexOf(keyValue, index);
             return _table[title].getValue(firstIndex);
         }
+
+        public int indexOf<T>(string title, T value, int startIndex = 0)
+        {
+            if (_table.ContainsKey(title))
+            {
+                ColumnData<T> columnData = _table[title] as ColumnData<T>;
+                if (columnData == null)
+                    return -1;
+                return columnData.indexOf(value, startIndex);
+            }
+            return -1;
+        }
     }
 }

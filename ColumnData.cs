@@ -122,7 +122,7 @@ namespace USheet
             return new GridData<T>(value);
         }
 
-        public int indexOf(T value, int startIndex)
+        public int indexOf(T value, int startIndex=0)
         {
             return _data.IndexOf(value, startIndex);
         }

@@ -11,15 +11,14 @@ namespace USheet
         public SheetData data = null;
         public string dataPath = "Assets/Resource/Student.asset";
 
-
-
         public InputField inputField;
+        public Text output;
+
         public Button getRow1Btn;
         public Button getRow2Btn;
-
         public Button modifyBtn;
-
-        public Text output;
+        public Button indexOfBtn;
+        
 
 
         // Use this for initialization
@@ -53,6 +52,10 @@ namespace USheet
             if (modifyBtn != null)
             {
                 modifyBtn.onClick.AddListener(onModifyBtnClick);
+            }
+            if (indexOfBtn!= null)
+            {
+                indexOfBtn.onClick.AddListener(onIndexOfBtnClick);
             }
 
             output.text = "row:" + data.rowCount + ", col:" + data.columnCount;
@@ -103,7 +106,7 @@ namespace USheet
             string[] searchParams = rowStr.Split('|');
             if (searchParams.Length != 2)
             {
-                Debug.LogError("searchParams error");
+                output.text = "Input: title|value (only string)";
                 return;
             }
             List<Dictionary<string, IGridData>> rows = data.getRows(searchParams[0], searchParams[1]);
@@ -137,6 +140,22 @@ namespace USheet
 
             data.modify(columnName, rowNo, new GridData<string>(value));
             EditorUtility.SetDirty(data);
+        }
+
+        private void onIndexOfBtnClick()
+        {
+            string[] searchParams = inputField.text.Split('|');
+            if (searchParams.Length != 3)
+            {
+                output.text = "Input: title|value|startIndex (only string)";
+                return;
+            }
+
+            string title = searchParams[0];
+            string value = searchParams[1];
+            int startIndex = int.Parse(searchParams[2]);
+
+            output.text = data.indexOf(title, value, startIndex).ToString();
         }
     }
 }

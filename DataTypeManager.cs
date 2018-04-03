@@ -8,9 +8,10 @@ namespace USheet
 {
     public enum E_DATA_TYPE
     {
-        Int,
-        String,
-        Sprite,
+        Type_Int,
+        Type_String,
+        Type_Sprite,
+        Type_Object,
     }
 
     #region column data class
@@ -37,6 +38,15 @@ namespace USheet
         {
         }
     }
+
+    [Serializable]
+    public class ObjectColumnData : ColumnData<UnityEngine.Object>
+    {
+        public ObjectColumnData(int count) : base(count)
+        {
+        }
+    }
+
     #endregion
 
     #region column data entry
@@ -48,6 +58,7 @@ namespace USheet
         public List<IntColumnData> intColumns = new List<IntColumnData>();
         public List<StringColumnData> stringColumns = new List<StringColumnData>();
         public List<SpriteColumnData> spriteColumns = new List<SpriteColumnData>();
+        public List<ObjectColumnData> objectColumns = new List<ObjectColumnData>();
 
         //索引
         public Dictionary<E_DATA_TYPE, IList> typeEntryMap = new Dictionary<E_DATA_TYPE, IList>();
@@ -55,9 +66,10 @@ namespace USheet
         public void reloadDataMap()
         {
             typeEntryMap.Clear();
-            typeEntryMap.Add(E_DATA_TYPE.Int, intColumns);
-            typeEntryMap.Add(E_DATA_TYPE.String, stringColumns);
-            typeEntryMap.Add(E_DATA_TYPE.Sprite, spriteColumns);
+            typeEntryMap.Add(E_DATA_TYPE.Type_Int, intColumns);
+            typeEntryMap.Add(E_DATA_TYPE.Type_String, stringColumns);
+            typeEntryMap.Add(E_DATA_TYPE.Type_Sprite, spriteColumns);
+            typeEntryMap.Add(E_DATA_TYPE.Type_Object, objectColumns);
         }
     }
     #endregion
@@ -99,9 +111,10 @@ namespace USheet
         private DataTypeManager()
         {
             sheetDataSet.Clear();
-            sheetDataSet.Add(new SheetDataSet(E_DATA_TYPE.Int, typeof(int), typeof(IntColumnData)));
-            sheetDataSet.Add(new SheetDataSet(E_DATA_TYPE.String, typeof(string), typeof(StringColumnData)));
-            sheetDataSet.Add(new SheetDataSet(E_DATA_TYPE.Sprite, typeof(Sprite), typeof(SpriteColumnData)));
+            sheetDataSet.Add(new SheetDataSet(E_DATA_TYPE.Type_Int, typeof(int), typeof(IntColumnData)));
+            sheetDataSet.Add(new SheetDataSet(E_DATA_TYPE.Type_String, typeof(string), typeof(StringColumnData)));
+            sheetDataSet.Add(new SheetDataSet(E_DATA_TYPE.Type_Sprite, typeof(Sprite), typeof(SpriteColumnData)));
+            sheetDataSet.Add(new SheetDataSet(E_DATA_TYPE.Type_Object, typeof(UnityEngine.Object), typeof(ObjectColumnData)));
         }
 
         public Type getColumnType(E_DATA_TYPE dataType)

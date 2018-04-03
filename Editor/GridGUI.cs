@@ -97,6 +97,19 @@ namespace USheet
         }
     }
 
+    public class ObjectGridGUI : GridGUI<UnityEngine.Object>
+    {
+        public override void doDraw(UnityEngine.Object data)
+        {
+            UnityEngine.Object tempdata = (UnityEngine.Object)EditorGUILayout.ObjectField(data, typeof(UnityEngine.Object), false);
+            if (tempdata != data)
+            {
+                _data.data = tempdata;
+                dataChangeAction();
+            }
+        }
+    }
+
 
     public class GridGUIManager
     {
@@ -115,6 +128,7 @@ namespace USheet
             _createDic.Add(typeof(int), typeof(IntGridGUI));
             _createDic.Add(typeof(string), typeof(StringGridGUI));
             _createDic.Add(typeof(Sprite), typeof(SpriteGridGUI));
+            _createDic.Add(typeof(UnityEngine.Object), typeof(ObjectGridGUI));
         }
 
         public IGridUI createGridUI(IGridData iData)

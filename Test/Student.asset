@@ -15,10 +15,14 @@ MonoBehaviour:
   - ID
   - Name
   - Picture
+  - dd
+  - ff
   _columnData:
     intColumns:
     - title: ID
       _data: 00000000010000000200000003000000
+    - title: ff
+      _data: 00000000000000000000000000000000
     stringColumns:
     - title: Name
       _data:
@@ -32,4 +36,11 @@ MonoBehaviour:
       - {fileID: 21300000, guid: a0c9a8e46256a414e8ec3079aa615ab7, type: 3}
       - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
       - {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+      - {fileID: 0}
+    objectColumns:
+    - title: dd
+      _data:
+      - {fileID: 11500000, guid: 53060a8268de16d419fad94c3a73bf3e, type: 3}
+      - {fileID: 0}
+      - {fileID: 0}
       - {fileID: 0}

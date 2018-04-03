@@ -9,7 +9,7 @@ namespace USheet
     public class AddColumnWindow : PopupWindowContent
     {
         private string _columnTitle = "";
-        private E_DATA_TYPE _dataType = E_DATA_TYPE.Int;
+        private E_DATA_TYPE _dataType = E_DATA_TYPE.Type_Int;
 
         private int labelWidth = 70;
         private int fieldWidth = 100;

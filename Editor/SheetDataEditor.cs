@@ -62,7 +62,7 @@ namespace USheet
             drawTitles();
             drawContent();
 
-           //base.OnInspectorGUI();
+            base.OnInspectorGUI();
         }
 
 

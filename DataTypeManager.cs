@@ -8,9 +8,9 @@ namespace USheet
 {
     public enum E_DATA_TYPE
     {
-        INT,
-        STRING,
-        SPRITE,
+        Int,
+        String,
+        Sprite,
     }
 
     #region column data class
@@ -55,9 +55,9 @@ namespace USheet
         public void reloadDataMap()
         {
             typeEntryMap.Clear();
-            typeEntryMap.Add(E_DATA_TYPE.INT, intColumns);
-            typeEntryMap.Add(E_DATA_TYPE.STRING, stringColumns);
-            typeEntryMap.Add(E_DATA_TYPE.SPRITE, spriteColumns);
+            typeEntryMap.Add(E_DATA_TYPE.Int, intColumns);
+            typeEntryMap.Add(E_DATA_TYPE.String, stringColumns);
+            typeEntryMap.Add(E_DATA_TYPE.Sprite, spriteColumns);
         }
     }
     #endregion
@@ -99,9 +99,9 @@ namespace USheet
         private DataTypeManager()
         {
             sheetDataSet.Clear();
-            sheetDataSet.Add(new SheetDataSet(E_DATA_TYPE.INT, typeof(int), typeof(IntColumnData)));
-            sheetDataSet.Add(new SheetDataSet(E_DATA_TYPE.STRING, typeof(string), typeof(StringColumnData)));
-            sheetDataSet.Add(new SheetDataSet(E_DATA_TYPE.SPRITE, typeof(Sprite), typeof(SpriteColumnData)));
+            sheetDataSet.Add(new SheetDataSet(E_DATA_TYPE.Int, typeof(int), typeof(IntColumnData)));
+            sheetDataSet.Add(new SheetDataSet(E_DATA_TYPE.String, typeof(string), typeof(StringColumnData)));
+            sheetDataSet.Add(new SheetDataSet(E_DATA_TYPE.Sprite, typeof(Sprite), typeof(SpriteColumnData)));
         }
 
         public Type getColumnType(E_DATA_TYPE dataType)

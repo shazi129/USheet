@@ -18,14 +18,18 @@ MonoBehaviour:
   _columnData:
     intColumns:
     - title: ID
-      _data: 0000000001000000
+      _data: 00000000010000000200000003000000
     stringColumns:
     - title: Name
       _data:
       - zhangwen
       - hahhahah
+      - John
+      - 
     spriteColumns:
     - title: Picture
       _data:
-      - {fileID: 0}
+      - {fileID: 21300000, guid: a0c9a8e46256a414e8ec3079aa615ab7, type: 3}
+      - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      - {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
       - {fileID: 0}
